@@ -1,16 +1,16 @@
 version: '3'
 
 services:
-  database:
+  mariadb:
     build:
-      context: ./docker/database
+      context: ./docker/mariadb
     environment:
       - MYSQL_DATABASE=mydb
       - MYSQL_USER=myuser
       - MYSQL_PASSWORD=secret
       - MYSQL_ROOT_PASSWORD=docker
     volumes:
-      - ./docker/database/data.sql:/docker-entrypoint-initdb.d/data.sql
+      - ./docker/mariadb/data.sql:/docker-entrypoint-initdb.d/data.sql
   nginx:
     build:
       context: ./docker/nginx
@@ -29,7 +29,7 @@ services:
     volumes:
       - .:/var/www
     depends_on:
-      - database
+      - mariadb
       - redis
   redis:
     image: 'redis'

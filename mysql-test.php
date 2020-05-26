@@ -2,7 +2,7 @@
 
 $value = "World";
 
-$db = new PDO('mysql:host=database;dbname=mydb;charset=utf8mb4', 'myuser', 'secret');
+$db = new PDO('mysql:host=mariadb;dbname=mydb;charset=utf8mb4', 'myuser', 'secret');
 //var_dump($db);
 
 $res = $db->query('SELECT * FROM dockerSample');
