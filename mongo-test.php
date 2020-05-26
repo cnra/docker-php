@@ -1,17 +1,18 @@
-<pre><?php
+<?php
+require 'vendor/autoload.php'; // include Composer's autoloader
 
-if (extension_loaded('MongoDB')) {
-    echo 'MongoDB kurulu.';
-} else {
-    echo 'MongoDB kurulu değil.';
+$client = new MongoDB\Client('mongodb://root:root@mongo:27017/');
+$db = $client->selectDatabase("deneme");
+$collection = $db->selectCollection("koleksiyon");
+
+$sayac = $collection->findOne( [ '_id' => 'sayac' ] );
+// var_dump($sayac);
+if (!$sayac) {
+    $collection->insertOne(['_id' => 'sayac', 'say' => 0], ['ordered' => false]);
 }
+$collection->updateOne([ '_id' => 'sayac' ], ['$inc' => ['say' => 1]]);  // sayacin sayini 1 arttir
 
+// echo "<pre>";
+// var_dump($sayac);
 
-$baglanti = new MongoDB\Driver\Manager('mongodb://root:root@mongo:27017/');
-
-
-$veri = new MongoDB\Driver\BulkWrite();
-$veri->insert(['adi' => 'Yusuf', 'soyadi' => 'SEZER']);
-
-$sonuc = $baglanti->executeBulkWrite('deneme.koleksiyon', $veri);
-var_dump($sonuc);
+echo "<b>mongodb sayac: </b>". $sayac->say;
