@@ -20,6 +20,16 @@ docker-compose up
 
 **not:** projenin c:\users\user altında olduğundan emin ol. docker toolbox'ın varsayılan virtualbox paylaşımlı klasörleri farklı yerleri görmüyor. masaüstü, belgelerim vs. üzerinden çalışılabilir. 
 
+ardından 8080 portu üzerinden bağlabiliriz
+
+http://192.168.99.100:8080
+
+bağlantı sağlanamazsa docker-machine ip'si farklı olabilir bunu öğrenmek için
+
+```
+docker-machine ip
+```
+
 
 ### sorun çözüm
 
