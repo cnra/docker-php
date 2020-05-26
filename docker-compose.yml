@@ -25,11 +25,17 @@ services:
       - 8080:80
   php-fpm:
     build:
-      context: ./docker/php-fpm
+      context: ./docker/php-fpm # eklentiler icin kendimiz build ediyoruz
     volumes:
-      - .:/var/www
-    depends_on:
+      - .:/var/www # nginx ile ayni dosyalara erisim
+    depends_on: # diger containerlara isimleri ile erisim
       - mariadb
       - redis
   redis:
     image: 'redis'
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
