@@ -14,5 +14,8 @@ RUN apt-get install -y libcurl4-openssl-dev pkg-config libssl-dev
 RUN pecl install mongodb
 RUN docker-php-ext-enable mongodb
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN apt install git -y
+
 CMD ["php-fpm"]
 EXPOSE 9000
