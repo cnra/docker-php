@@ -30,4 +30,6 @@ services:
       - .:/var/www
     depends_on:
       - database
-
+      - redis
+  redis:
+    image: 'redis'
