@@ -2,7 +2,7 @@
 
 $redis = new Redis();
 
-$redis->connect('redis', 6379); 
+$redis->connect('192.168.99.100', 6379); 
 
 $redis->incr('sayac'); /* sayac arttirmaca */
 

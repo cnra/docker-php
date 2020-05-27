@@ -1,7 +1,7 @@
 <?php
 require 'vendor/autoload.php'; // include Composer's autoloader
 
-$client = new MongoDB\Client('mongodb://root:root@mongo:27017/');
+$client = new MongoDB\Client('mongodb://root:root@192.168.99.100:27017/');
 $db = $client->selectDatabase("deneme");
 $collection = $db->selectCollection("koleksiyon");
 
