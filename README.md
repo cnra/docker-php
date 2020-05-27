@@ -8,6 +8,8 @@ https://github.com/docker/toolbox/releases
 
 docker desktop için hyper-v vs. gerekiyor. toolbox ise virtualbox üzerinden çalışıyor.
 
+composer kurulu olmalı. değilse docker php-fpm e bash ile login olup composer install oradan da yapılabilir.
+
 ## kullanım
 
 docker-toolbox kuruluysa şöyle kullanabiliriz.
@@ -15,6 +17,7 @@ docker-toolbox kuruluysa şöyle kullanabiliriz.
 ```
 git clone https://github.com/cnra/docker-php
 cd docker-php
+composer install
 docker-compose up
 ```
 
