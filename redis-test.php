@@ -8,6 +8,8 @@ $redis->incr('sayac'); /* sayac arttirmaca */
 
 var_dump($redis);
 
+$sayac = $redis->get('sayac');
+
 echo "sayac: ". $redis->get('sayac');
 
 ?>
